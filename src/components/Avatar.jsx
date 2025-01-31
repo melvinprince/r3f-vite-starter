@@ -68,26 +68,31 @@ export function Avatar(props) {
         geometry={nodes.Wolf3D_Hair.geometry}
         material={materials.Wolf3D_Hair}
         skeleton={nodes.Wolf3D_Hair.skeleton}
+        frustumCulled={false}
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Top.geometry}
         material={materials.Wolf3D_Outfit_Top}
         skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+        frustumCulled={false}
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
         material={materials.Wolf3D_Outfit_Bottom}
         skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+        frustumCulled={false}
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
         material={materials.Wolf3D_Outfit_Footwear}
         skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+        frustumCulled={false}
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Body.geometry}
         material={materials.Wolf3D_Body}
         skeleton={nodes.Wolf3D_Body.skeleton}
+        frustumCulled={false}
       />
       <skinnedMesh
         name="EyeLeft"
@@ -96,6 +101,7 @@ export function Avatar(props) {
         skeleton={nodes.EyeLeft.skeleton}
         morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
         morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
+        frustumCulled={false}
       />
       <skinnedMesh
         name="EyeRight"
@@ -104,6 +110,7 @@ export function Avatar(props) {
         skeleton={nodes.EyeRight.skeleton}
         morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
         morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
+        frustumCulled={false}
       />
       <skinnedMesh
         name="Wolf3D_Head"
@@ -112,6 +119,7 @@ export function Avatar(props) {
         skeleton={nodes.Wolf3D_Head.skeleton}
         morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
         morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
+        frustumCulled={false}
       />
       <skinnedMesh
         name="Wolf3D_Teeth"
@@ -120,6 +128,7 @@ export function Avatar(props) {
         skeleton={nodes.Wolf3D_Teeth.skeleton}
         morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
         morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+        frustumCulled={false}
       />
       <skinnedMesh
         name="Wolf3D_Beard"
@@ -128,6 +137,7 @@ export function Avatar(props) {
         skeleton={nodes.Wolf3D_Beard.skeleton}
         morphTargetDictionary={nodes.Wolf3D_Beard.morphTargetDictionary}
         morphTargetInfluences={nodes.Wolf3D_Beard.morphTargetInfluences}
+        frustumCulled={false}
       />
     </group>
   );

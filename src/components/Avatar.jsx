@@ -57,7 +57,7 @@ export function Avatar(props) {
 
   useEffect(() => {
     Object.values(materials).forEach((material) => {
-      material.wireFrame = wireFrame;
+      material.wireframe = wireFrame;
     });
   }, [wireFrame]);
 

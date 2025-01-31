@@ -11,11 +11,11 @@ import * as THREE from "three";
 import { useControls } from "leva";
 
 export function Avatar(props) {
-  //   const { animation } = props;
-  const { headFollow, cursorFollow } = useControls({
+  const { animation } = props;
+  const { headFollow, cursorFollow, wireFrame } = useControls({
     headFollow: false,
     cursorFollow: false,
-    // wireFrame: false,
+    wireFrame: false,
   });
   const group = useRef();
   const { scene } = useGLTF("models/679c4a2be878695d72b18a06.glb");
@@ -23,17 +23,20 @@ export function Avatar(props) {
   const { nodes, materials } = useGraph(clone);
 
   const { animations: typingAnimation } = useFBX("animations/Typing.fbx");
-  //   const { animations: standingAnimation } = useFBX(
-  //     "animations/Standing Idle.fbx"
-  //   );
-  //   const { animations: fallingAnimation } = useFBX(
-  //     "animations/Falling Idle.fbx"
-  //   );
+  const { animations: standingAnimation } = useFBX(
+    "animations/Standing Idle.fbx"
+  );
+  const { animations: fallingAnimation } = useFBX(
+    "animations/Falling Idle.fbx"
+  );
   typingAnimation[0].name = "Typing";
-  //   standingAnimation[0].name = "Standing";
-  //   fallingAnimation[0].name = "Falling";
+  standingAnimation[0].name = "Standing";
+  fallingAnimation[0].name = "Falling";
 
-  const { actions } = useAnimations(typingAnimation, group);
+  const { actions } = useAnimations(
+    [typingAnimation[0], standingAnimation[0], fallingAnimation[0]],
+    group
+  );
 
   useFrame((state) => {
     if (headFollow)
@@ -46,17 +49,17 @@ export function Avatar(props) {
   });
 
   useEffect(() => {
-    actions["Typing"].reset().fadeIn(0.5).play();
-    // return () => {
-    //   actions[animation].reset().fadeOut(0.5);
-    // };
-  }, []);
+    actions[animation].reset().fadeIn(0.5).play();
+    return () => {
+      actions[animation].reset().fadeOut(0.5);
+    };
+  }, [animation]);
 
-  //   useEffect(() => {
-  //     Object.values(materials).forEach((material) => {
-  //       material.wireFrame = wireFrame;
-  //     });
-  //   }, [wireFrame]);
+  useEffect(() => {
+    Object.values(materials).forEach((material) => {
+      material.wireFrame = wireFrame;
+    });
+  }, [wireFrame]);
 
   return (
     <group {...props} ref={group} dispose={null}>
